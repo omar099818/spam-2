@@ -1,55 +1,31 @@
+var ServerID = "493540109690339338"; //اي دي السيرفر
+var ChannelID = "493540109690339340";// اي دي الروم
+
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+client.on('warn', console.warn);
 
-client.on('ready', async() => {
-var server = "493540109690339338"; // ايدي السررفر
-var channel = "493540109690339340";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('**كودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودز **')
-    },305);
-})
+client.on('error', console.error);
 
 
 
-client.on('ready', async() => {
-var server = "493540109690339338"; // ايدي السررفر
-var channel = "493540109690339340";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('#daily')
-    },86400);
-})
+client.on('ready', () => console.log('ProBot Credits Miner Discord.js Script'));
+
+client.on('disconnect', () => console.log('PROBOT credits miner had disconnected!'));
+
+client.on('reconnecting', () => console.log('PROBOT credits miner is reconnecting...'));
 
 
-client.on('ready', async() => {
-var server = "493540109690339338"; // ايدي السررفر
-var channel = "493540109690339340";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('#rep <@292053825546747905>')
-    },86400);
-})
+function timerFunc() {
+    client.on('message', msg => {
+        client.guilds.get(ServerID).channels.get(ChannelID).send(Math.random().toString(36).substring(7))
 
 
-client.on('ready', async() => {
-var server = "493540109690339338"; // ايدي السررفر
-var channel = "493540109690339340";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('t!rep <@292053825546747905>')
-    },86400);
-})
+    });
+}
 
+var timer = setTimeout(timerFunc, 1000);
 
-client.on('ready', async() => {
-var server = "493540109690339338"; // ايدي السررفر
-var channel = "493540109690339340";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('t!daily')
-    },86400);
-})
-
-
-
-client.login(process.env.BOT_TOKEN); 
+client.login(process.env.BOT_TOKEN);
